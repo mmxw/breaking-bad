@@ -18,11 +18,12 @@ class CharacterIndex extends React.Component {
   }
 
   render() {
+    if (!this.state.characters) return null
     return (
       <section className="section">
         <div className="container">
           <div className="columns is-mobile is-multiline">
-            {/* {this.state.characters.map(character)} */}
+            {this.state.characters.map(character => <CharacterCard key={character.char_id} {...character} />)}
           </div>
         </div>
       </section>

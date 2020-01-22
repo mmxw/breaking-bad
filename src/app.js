@@ -6,8 +6,8 @@ import 'bulma'
 
 import Home from './components/common/Home'
 import NotFound from './components/common/NotFound'
-import SecureRoute from './components/common/SecureRoute'
 
+import CharacterView from './components/characters/CharacterView'
 import Navbar from './components/common/Navbar'
 import CharacterIndex from './components/characters/CharacterIndex'
 
@@ -19,6 +19,7 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route path='/characters/:id' component={CharacterView} />
             <Route path="/characters" component={CharacterIndex} />
             <Route path="/*" component={NotFound} />
           </Switch>
