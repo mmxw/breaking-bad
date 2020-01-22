@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CharacterCard = ({ char_id, name, image, nickname }) => (
+const CharacterCard = ({ char_id, name, img, nickname }) => (
   <div className="column is-one-quarter-desktop is-one-third-tablet if-full-mobile">
 
     <Link to={`/characters/${char_id}`}>
@@ -9,7 +9,7 @@ const CharacterCard = ({ char_id, name, image, nickname }) => (
         <h4 className="card-header-title">{name}/{nickname}</h4>
 
         <figure className="image">
-          <img src={image} alt={name} />
+          <img src={img} alt={name} />
         </figure>
 
       </div>

@@ -30,7 +30,7 @@ class CharacterView extends React.Component {
           <div className="columns">
             <div className="column is-half">
               <figure className="image">
-                <img src={character.image} alt={character.name} />
+                <img src={character.img} alt={character.name} />
               </figure>
             </div>
             <div className="column is-half">
@@ -42,7 +42,6 @@ class CharacterView extends React.Component {
               <h4 className="title is-4">Status: {character.status}</h4>
               <hr />
               <h4 className="title is-4">Actor: {character.portrayed}</h4>
-
             </div>
           </div>
         </div>
