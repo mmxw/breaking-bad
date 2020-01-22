@@ -1,11 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './stylesheets/main.scss'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import 'bulma'
+
+import Home from './components/common/Home'
+import NotFound from './components/common/NotFound'
+import SecureRoute from './components/common/SecureRoute'
+
+import Navbar from './components/common/Navbar'
+import CharacterIndex from './components/characters/CharacterIndex'
 
 class App extends React.Component {
   render() {
     return (
-      <h1>React Starter Pack</h1>
+      <BrowserRouter>
+        <>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path="/characters" component={CharacterIndex} />
+            <Route path="/*" component={NotFound} />
+          </Switch>
+        </>
+      </BrowserRouter>
     )
   }
 }
