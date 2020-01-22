@@ -1,7 +1,15 @@
 import React from 'react'
 
 const NotFound = () => (
-  <h1>Error Page</h1>
+  <section className="hero is-fullheight-with-navbar">
+    <div className="hero-body">
+      <div className="container">
+        <p className="subtitle is-4 has-text-black has-text-centered">
+          Not able to locate page
+        </p>
+      </div>
+    </div>
+  </section>
 )
 
 export default NotFound
