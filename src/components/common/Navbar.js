@@ -1,22 +1,44 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 class Navbar extends React.Component {
   state = { navOpen: false }
 
-
+  toggleNavbar = () => {
+    this.setState({ navOpen: !this.state.navOpen })
+  }
+ 
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.setState({ navOpen: false })
+    } 
+  }
 
   render() {
     return (
-      <>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/characters'>Characters</Link>
-        </nav>
-      </>
+      <nav className="navbar is-dark">
+        <div className="container">
+          <div className="navbar-brand">
+            <Link className="navbar-item" to="/">Home</Link>
+            <a
+              className={`navbar-burger ${this.state.navOpen ? 'is-active' : ''}`}
+              onClick={this.toggleNavbar}
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div className={`navbar-menu ${this.state.navOpen ? 'is-active' : ''}`}>
+            <div className="navbar-end">
+              <Link className="navbar-item" to='/characters'>Characters</Link>
+            </div>
+          </div>
+        </div>
+      </nav>
     )
   }
 
 }
 
-export default Navbar
+export default withRouter(Navbar)
