@@ -7,19 +7,25 @@ class EpisodeView extends React.Component {
   state = { episode: null }
 
   async componentDidMount() {
-    const episodeID = this.props.match.params.id
     try {
-      const { data } = await axios.get(`https://breakingbadapi.com/api/characters/${episodeId}`)
-      console.log(episodeID)
-      console.log(data)
-      this.setState({ episode: data[0] })
+      const str = window.location.href.slice(-2)
+      const episodeId = () => {
+        if (str.includes('/')) {
+          return parseInt(str.slice(-1)) - 1
+        } else {
+          return parseInt(str) - 1
+        }
+      }
+
+      const response = await axios.get('https://breakingbadapi.com/api/episodes')
+      console.log(response.data[episodeId])
+      this.setState({ episode: response.data[episodeId()] })
     } catch (error) {
       this.props.history.push('/errorpage')
     }
   }
 
   render() {
-    console.log(this.state.episode)
     if (!this.state.episode) return null
     const { episode } = this.state
     return (
@@ -35,9 +41,6 @@ class EpisodeView extends React.Component {
               )}
               
             </div>
-
-
-            
           </div>
         </div>
       </section>
