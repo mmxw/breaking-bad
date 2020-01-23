@@ -10,7 +10,7 @@ class EpisodeCard extends React.Component {
         <Link to={`/seasons/${this.props.season}/${this.props.episode_id}`}>
           <div className="card">
             <div className="card-header">
-              <h4 className="card-header-title">Title: {this.props.title}</h4>
+              <h4 className="card-header-title">{this.props.title}</h4>
             </div>
             {/* <div className="card-image">
             <figure className="image">
