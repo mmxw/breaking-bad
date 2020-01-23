@@ -19,7 +19,6 @@ class EpisodeIndex extends React.Component {
         episodeArr = episodes.data.filter(episode => episode.season === i.toString())
         seasonEpArr.push(episodeArr)
         seasonId = window.location.href.slice(-1)
-        // console.log(seasonEpArr)
       }
       this.setState({ episodes: seasonEpArr })
     } catch (error) {
