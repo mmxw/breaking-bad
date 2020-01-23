@@ -21,9 +21,13 @@ class Deaths extends React.Component {
     if (!this.state.deaths) return null
     console.log(this.state.deaths)
     return (
-      <>
-        {this.state.deaths.map(death => <DeathCard key={death.death_id} {...death} />)}
-      </>
+      <section className="section">
+        <div className="container">
+          <div className="columns is-mobile is-multiline">
+            {this.state.deaths.map(death => <DeathCard key={death.death_id} {...death} />)}
+          </div>
+        </div>
+      </section>
     )
   }
 }

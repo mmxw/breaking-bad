@@ -21,9 +21,13 @@ class Quotes extends React.Component {
     if (!this.state.quotes) return null
     console.log(this.state.quotes)
     return (
-      <>
-        {this.state.quotes.map(quote => <QuoteCard key={quote.quote_id} {...quote} />)}
-      </>
+      <section className="section">
+        <div className="container">
+          <div className="columns is-mobile is-multiline">
+            {this.state.quotes.map(quote => <QuoteCard key={quote.quote_id} {...quote} />)}
+          </div>
+        </div>
+      </section>
     )
   }
 }

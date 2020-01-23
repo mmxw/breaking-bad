@@ -68,8 +68,6 @@ These are just a few examples of lists of free APIs you could use, there are hun
 * __Problem Solving__: Are you able to defend why you implemented your solution in a certain way? Can you demonstrated that you thought through alternative implementations? _(Note that this part of your feedback evaluation will take place during your one-on-one code review with your instructors, after you've completed the project.)
 
 * TODO:
-- Quotes
 - Search Bar
-- Deaths
 - Filter
 - Style_
