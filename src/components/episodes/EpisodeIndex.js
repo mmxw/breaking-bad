@@ -2,6 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import EpisodeCard from './EpisodeCard'
 
+
+let seasonEpArr = []
+
 class SeasonOneIndex extends React.Component {
   state = {
     episodes: null
@@ -9,20 +12,25 @@ class SeasonOneIndex extends React.Component {
 
   async componentDidMount() {
     try {
+      
+      // let seasonEpArr = []
+      let episodeArr = []
       const episodes = await axios.get('https://breakingbadapi.com/api/episodes')
-      console.log(episodes.data)
-      this.setState({
-        episodes: episodes.data.filter(episode => (
-          episode.season === '1'
-        ))
-      })
+      for (let i = 1; i < 6; i++) {
+        episodeArr = episodes.data.filter(episode => episode.season === i.toString())
+        seasonEpArr.push(episodeArr)
+        console.log(seasonEpArr)
+      }
+      // console.log(episodes.data)
+      this.setState({ episodes: seasonEpArr })
+
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
 
   render() {
-    console.log(this.episodes)
+    console.log(this.state.episodes)
     if (!this.state.episodes) return null
     return (
       <section className="section">
@@ -34,7 +42,6 @@ class SeasonOneIndex extends React.Component {
       </section>
     )
   }
-
 }
 
 export default SeasonOneIndex

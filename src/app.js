@@ -11,6 +11,7 @@ import CharacterView from './components/characters/CharacterView'
 import Navbar from './components/common/Navbar'
 import CharacterIndex from './components/characters/CharacterIndex'
 import SeasonIndex from './components/seasons/SeasonIndex'
+import EpisodeIndex from './components/episodes/EpisodeIndex'
 
 class App extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route path='/characters/:id' component={CharacterView} />
             <Route path="/characters" component={CharacterIndex} />
+            <Route path='/seasons/:id' component={EpisodeIndex} />
             <Route path="/seasons" component={SeasonIndex} />
             <Route path="/*" component={NotFound} />
           </Switch>
