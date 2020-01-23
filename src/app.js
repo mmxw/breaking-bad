@@ -10,6 +10,7 @@ import NotFound from './components/common/NotFound'
 import CharacterView from './components/characters/CharacterView'
 import Navbar from './components/common/Navbar'
 import CharacterIndex from './components/characters/CharacterIndex'
+import SeasonIndex from './components/episodes/SeasonIndex'
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route path='/characters/:id' component={CharacterView} />
             <Route path="/characters" component={CharacterIndex} />
+            <Route path="/seasons" component={SeasonIndex} />
             <Route path="/*" component={NotFound} />
           </Switch>
         </>

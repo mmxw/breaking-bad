@@ -1,7 +1,19 @@
 import React from 'react'
+// import Hero from '../../assets/hero'
 
 const Home = () => (
-  <h1>Home Page</h1>
+  <section className="hero is-fullheight-with-navbar">
+    <div className="hero-body cheese-image">
+      <div className="container">
+        <p className="title is-1 has-text-white has-text-centered">
+          Breaking Bad
+        </p>
+        <p className="subtitle is-4 has-text-white has-text-centered">
+          Lets cook...
+        </p>
+      </div>
+    </div>
+  </section>
 )
 
 export default Home
