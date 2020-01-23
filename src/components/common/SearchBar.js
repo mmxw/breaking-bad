@@ -1,35 +1,21 @@
 import React from 'react'
-class SearchBar extends React.Component {
 
-  state = {
-    characters: null
-  }
 
-  async componentDidMount() {
-    try {
-      
-      const result = this.state.characters.filter(character => this.handleSearch)
-    }
-  }
-
-  handleSearch = (e, userInput) => {
-    userInput.toLowerCase().search(
-      e.target.value.toLowerCase()) !== -1
-  }
-
+const SearchBar = ({ onChange }) => (
+  <div className="field has-addons">
+    <div className="control">      
+      <input 
+        type="text"
+        className="input" 
+        placeholder="character name" 
+        onChange={ e => {
+          const userInput = e.target.value
+          onChange(userInput)
+        }}
+      />
+    </div>
+  </div>
   
+)
 
-  render() {
-    return (
-      <div>
-        <form>
-          <fieldset>
-            <input type="text" placeholder="Search by character name" onChange={} />
-          </fieldset>
-        </form>
-        <List items={this.state.items} />
-      </div>
-    )
-  }
-}
 export default SearchBar
