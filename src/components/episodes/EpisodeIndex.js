@@ -2,10 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import EpisodeCard from './EpisodeCard'
 
-
 let seasonEpArr = []
 
-let seasonId = '1'
+let seasonId = null
 
 class SeasonOneIndex extends React.Component {
   state = {
@@ -14,26 +13,21 @@ class SeasonOneIndex extends React.Component {
 
   async componentDidMount() {
     try {
-      
-      // let seasonEpArr = []
       let episodeArr = []
       const episodes = await axios.get('https://breakingbadapi.com/api/episodes')
       for (let i = 1; i < 6; i++) {
         episodeArr = episodes.data.filter(episode => episode.season === i.toString())
         seasonEpArr.push(episodeArr)
+        seasonId = window.location.href.slice(-1)
         console.log(seasonEpArr)
       }
-      // console.log(episodes.data)
       this.setState({ episodes: seasonEpArr })
-
     } catch (error) {
-      // console.log(error)
+      console.log(error)
     }
   }
 
   render() {
-    console.log(this.state.episodes)
-    console.log(this.seasonEpArr)
     if (!this.state.episodes) return null
     return (
       <section className="section">
