@@ -13,6 +13,8 @@ import CharacterIndex from './components/characters/CharacterIndex'
 import SeasonIndex from './components/seasons/SeasonIndex'
 import EpisodeIndex from './components/episodes/EpisodeIndex'
 import EpisodeView from './components/episodes/EpisodeView'
+import Quotes from './components/quotes/Quotes'
+import Deaths from './components/deaths/Deaths'
 
 class App extends React.Component {
   render() {
@@ -27,6 +29,8 @@ class App extends React.Component {
             <Route path='/seasons/:id/:id' component={EpisodeView} />
             <Route path='/seasons/:id' component={EpisodeIndex} />
             <Route path="/seasons" component={SeasonIndex} />
+            <Route path="/quotes" component={Quotes} />
+            <Route path="/deaths" component={Deaths} />
             <Route path="/*" component={NotFound} />
           </Switch>
         </>

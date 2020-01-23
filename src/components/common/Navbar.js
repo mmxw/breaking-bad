@@ -33,6 +33,8 @@ class Navbar extends React.Component {
             <div className="navbar-end">
               <Link className="navbar-item" to='/characters'>Characters</Link>
               <Link className="navbar-item" to='/seasons'>Seasons</Link>
+              <Link className="navbar-item" to='/quotes'>Quotes</Link>
+              <Link className="navbar-item" to='/deaths'>Deaths</Link>
             </div>
           </div>
         </div>

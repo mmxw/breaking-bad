@@ -9,8 +9,6 @@ class CharacterView extends React.Component {
     const charId = this.props.match.params.id
     try {
       const { data } = await axios.get(`https://breakingbadapi.com/api/characters/${charId}`)
-      console.log(charId)
-      console.log(data)
       this.setState({ character: data[0] })
     } catch (error) {
       this.props.history.push('/errorpage')
@@ -18,7 +16,6 @@ class CharacterView extends React.Component {
   }
 
   render() {
-    console.log(this.state.character)
     if (!this.state.character) return null
     const { character } = this.state
     return (
