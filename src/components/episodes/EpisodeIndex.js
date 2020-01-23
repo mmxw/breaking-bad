@@ -6,7 +6,7 @@ let seasonEpArr = []
 
 let seasonId = null
 
-class SeasonOneIndex extends React.Component {
+class EpisodeIndex extends React.Component {
   state = {
     episodes: null
   }
@@ -19,7 +19,7 @@ class SeasonOneIndex extends React.Component {
         episodeArr = episodes.data.filter(episode => episode.season === i.toString())
         seasonEpArr.push(episodeArr)
         seasonId = window.location.href.slice(-1)
-        console.log(seasonEpArr)
+        // console.log(seasonEpArr)
       }
       this.setState({ episodes: seasonEpArr })
     } catch (error) {
@@ -29,6 +29,7 @@ class SeasonOneIndex extends React.Component {
 
   render() {
     if (!this.state.episodes) return null
+    console.log(seasonId)
     return (
       <section className="section">
         <div className="container">
@@ -41,4 +42,4 @@ class SeasonOneIndex extends React.Component {
   }
 }
 
-export default SeasonOneIndex
+export default EpisodeIndex
