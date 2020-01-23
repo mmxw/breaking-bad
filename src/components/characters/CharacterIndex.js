@@ -22,7 +22,7 @@ class CharacterIndex extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <div className="columns is-one-third-desktop">
+          <div className="columns is-mobile is-multiline">
             {this.state.characters.map(character => <CharacterCard key={character.char_id} {...character} />)}
           </div>
         </div>

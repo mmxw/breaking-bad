@@ -5,6 +5,8 @@ import EpisodeCard from './EpisodeCard'
 
 let seasonEpArr = []
 
+let seasonId = '1'
+
 class SeasonOneIndex extends React.Component {
   state = {
     episodes: null
@@ -31,12 +33,13 @@ class SeasonOneIndex extends React.Component {
 
   render() {
     console.log(this.state.episodes)
+    console.log(this.seasonEpArr)
     if (!this.state.episodes) return null
     return (
       <section className="section">
         <div className="container">
           <div className="columns is-mobile is-multiline">
-            {this.state.episodes.map(episode => <EpisodeCard key={episode.episode_id} {...episode} />)}
+            {this.state.episodes[parseInt(seasonId) - 1].map(episode => <EpisodeCard key={episode.episode_id} {...episode} />)}
           </div>
         </div>
       </section>
