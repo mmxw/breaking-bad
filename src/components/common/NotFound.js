@@ -5,7 +5,7 @@ const NotFound = () => (
     <div className="hero-body">
       <div className="container">
         <p className="subtitle is-4 has-text-black has-text-centered">
-          Not able to locate page
+          Not Found
         </p>
       </div>
     </div>

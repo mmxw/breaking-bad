@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import CharacterCard from './CharacterCard'
 import SearchBar from '../common/SearchBar'
+import NotFound from '../common/NotFound'
 
 class CharacterIndex extends React.Component {
   state = {
@@ -30,7 +31,9 @@ class CharacterIndex extends React.Component {
         <div className="container">
           <SearchBar onChange={ this.handleChange }/>
           <div className="columns is-mobile is-multiline">
-            {charArr.map(character => <CharacterCard key={character.char_id} {...character} />)}
+            {charArr.length === 0 && this.state.userInput ?
+              <NotFound /> :
+              charArr.map(character => <CharacterCard key={character.char_id} {...character} />)}
           </div>
         </div>
       </section>
