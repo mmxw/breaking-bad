@@ -1,41 +1,36 @@
 import React from 'react'
-import axios from 'axios'
 import SeasonCard from './SeasonCard'
-import SeasonOneIndex from './SeasonOneIndex'
 
-class CharacterIndex extends React.Component {
-  state = {
-    episodes: null
-  }
+class SeasonIndex extends React.Component {
 
-  async componentDidMount() {
-    try {
-      const episodes = await axios.get('https://breakingbadapi.com/api/episodes')
-      console.log(episodes.data)
-      this.setState({
-        episodes: episodes.data.filter(episode => (
-          episode.season === '1'
-        ))
-      })
-    } catch (error) {
-      console.log(error)
+  state = [
+    {
+      seasonId: '1',
+      img: 'https://images.amcnetworks.com/blogs.amctv.com/wp-content/uploads/2013/12/bb-s1-poster.jpg'
+    },
+    {
+      seasonId: '2',
+      img: 'https://images.amcnetworks.com/blogs.amctv.com/wp-content/uploads/2013/12/bb-s2-poster.jpg'
+    },
+    {
+      seasonId: '3',
+      img: 'https://images.amcnetworks.com/blogs.amctv.com/wp-content/uploads/2013/12/BB-s3-poster.jpg'
+    },
+    {
+      seasonId: '4',
+      img: 'https://images.amcnetworks.com/blogs.amctv.com/wp-content/uploads/2013/12/bb-s4-poster.jpg'
+    },
+    {
+      seasonId: '5',
+      img: 'https://images.amcnetworks.com/blogs.amctv.com/wp-content/uploads/2013/12/bb-s5-poster.jpg'
     }
-  }
+  ]
 
   render() {
-    console.log(this.episodes)
-    if (!this.state.episodes) return null
     return (
-      <section className="section">
-        <div className="container">
-          <div className="columns is-mobile is-multiline">
-            {this.state.episodes.map(episode => <SeasonCard key={episode.season} {...episode} />)}
-          </div>
-        </div>
-      </section>
+      <h1>text</h1>
     )
   }
-
 }
 
-export default CharacterIndex
+export default SeasonIndex
