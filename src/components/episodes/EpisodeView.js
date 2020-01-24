@@ -28,7 +28,7 @@ class EpisodeView extends React.Component {
           return parseInt(str) - 1
         }
       }
-      
+
       await axios.all([
         axios.get('https://breakingbadapi.com/api/episodes'),
         axios.get('https://breakingbadapi.com/api/characters')
@@ -48,21 +48,19 @@ class EpisodeView extends React.Component {
 
   render() {
     if (!this.state.episode) return null
-    
+
     const { episode, allCharacters } = this.state
-    console.log(episode, allCharacters)
     const charArr = allCharacters.filter(character => episode.characters.includes(character.name))
-    
+    console.log(episode, allCharacters)
+    console.log(charArr)
     return (
       <section style={sectionStyle} className="section">
         <div className="container">
           <h2 className="title has-text-light">{episode.title}</h2>
           <h4 className="title is-4 has-text-light">Air Date: {episode.air_date}</h4>
           <h4 className="title is-4 has-text-light">Characters:</h4>
-          <div className="columns">   
-            <div className="columns is-mobile is-multiline">
-              {charArr.map(character => <CharacterCard key={character.char_id} {...character} />)}       
-            </div>
+          <div className="columns is-mobile is-multiline">
+            {charArr.map(character => <CharacterCard key={character.char_id} {...character} />)}
           </div>
         </div>
       </section>
