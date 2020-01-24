@@ -2,20 +2,19 @@ import React from 'react'
 
 
 const SearchBar = ({ onChange }) => (
-  <div className="field has-addons">
-    <div className="control">      
-      <input 
+  <div className="columns is-centered">
+    <div className="control column is-half">
+      <input
         type="text"
-        className="input" 
-        placeholder="Search..." 
-        onChange={ e => {
+        className="input"
+        placeholder="Search..."
+        onChange={e => {
           const userInput = e.target.value
           onChange(userInput)
         }}
       />
     </div>
   </div>
-  
 )
 
 export default SearchBar
