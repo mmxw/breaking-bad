@@ -29,7 +29,7 @@ class CharacterIndex extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <SearchBar onChange={ this.handleChange }/>
+          <SearchBar onChange={ this.handleChange } />
           <div className="columns is-mobile is-multiline">
             {charArr.length === 0 && this.state.userInput ?
               <NotFound /> :

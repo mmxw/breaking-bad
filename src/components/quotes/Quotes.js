@@ -1,10 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 import QuoteCard from './QuoteCard'
+import SearchBar from '../common/SearchBar'
+import NotFound from '../common/NotFound'
 
 class Quotes extends React.Component {
   state = {
-    quotes: null
+    quotes: [],
+    userInput: ''
   }
 
   async componentDidMount() {
@@ -17,14 +20,22 @@ class Quotes extends React.Component {
     }
   }
 
+  handleChange = (userInput) => {
+    this.setState({ userInput })
+  }
+
   render() {
-    if (!this.state.quotes) return null
+    const charQuoteArr = this.state.quotes.filter(obj => obj.author.toLowerCase().includes(this.state.userInput.toLowerCase())) //TODO
+
     console.log(this.state.quotes)
     return (
       <section className="section">
         <div className="container">
+          <SearchBar onChange={ this.handleChange } />
           <div className="columns is-mobile is-multiline">
-            {this.state.quotes.map(quote => <QuoteCard key={quote.quote_id} {...quote} />)}
+            {charQuoteArr.length === 0 && this.state.userInput ?
+              <NotFound /> :
+              charQuoteArr.map(quote => <QuoteCard key={quote.quote_id} {...quote} />)}
           </div>
         </div>
       </section>
