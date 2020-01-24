@@ -13,8 +13,8 @@ const NotFound = () => (
   <section style={sectionStyle} className="hero is-fullheight-with-navbar">
     <div className="hero-body">
       <div className="container">
-        <p className="subtitle is-4 has-text-black has-text-centered">
-          Unknown...
+        <p className="subtitle is-2 has-text-white-bis has-text-centered">
+          <b>Unknown...</b>
         </p>
       </div>
     </div>

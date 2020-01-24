@@ -1,5 +1,14 @@
 import React from 'react'
 import axios from 'axios'
+import Background from '../../assets/list-bkrd.jpg'
+
+const sectionStyle = {
+  width: '100%',
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundSize: 'cover'
+}
 
 class CharacterView extends React.Component {
 
@@ -19,11 +28,10 @@ class CharacterView extends React.Component {
     if (!this.state.character) return null
     const { character } = this.state
     return (
-      <section className="section">
+      <section style={sectionStyle} className="section">
         <div className="container">
-          <h2 className="title">{character.name}</h2>
-          <h3 className="title is-3">{character.nickname}</h3>
-          <hr />
+          <h2 className="title has-text-light">{character.name}</h2>
+          <h3 className="title is-3 has-text-light">{character.nickname}</h3>
           <div className="columns">
             <div className="column is-half">
               <figure className="image">
@@ -31,14 +39,10 @@ class CharacterView extends React.Component {
               </figure>
             </div>
             <div className="column is-half">
-              <hr />
-              <h4 className="title is-4">Birthday: {character.birthday}</h4>
-              <hr />
-              <h4 className="title is-4">Occupation: {character.occupation.join(', ')}</h4>
-              <hr />
-              <h4 className="title is-4">Status: {character.status}</h4>
-              <hr />
-              <h4 className="title is-4">Actor: {character.portrayed}</h4>
+              <h4 className="title is-4 has-text-light">Birthday: {character.birthday}</h4>
+              <h4 className="title is-4 has-text-light">Occupation: {character.occupation.join(', ')}</h4>
+              <h4 className="title is-4 has-text-light">Status: {character.status}</h4>
+              <h4 className="title is-4 has-text-light">Actor: {character.portrayed}</h4>
             </div>
           </div>
         </div>

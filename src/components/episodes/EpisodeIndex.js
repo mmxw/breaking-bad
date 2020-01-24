@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import EpisodeCard from './EpisodeCard'
-import Background from '../../assets/hero-error.jpg'
+import Background from '../../assets/list-bkrd.jpg'
 
 const sectionStyle = {
   width: '100%',

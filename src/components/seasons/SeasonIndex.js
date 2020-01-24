@@ -1,6 +1,6 @@
 import React from 'react'
 import SeasonCard from './SeasonCard'
-import Background from '../../assets/hero-error.jpg'
+import Background from '../../assets/list-bkrd.jpg'
 
 const sectionStyle = {
   width: '100%',
