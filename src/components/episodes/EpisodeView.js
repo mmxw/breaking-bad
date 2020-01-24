@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from 'axios'
-// import CharacterCard from '../characters/CharacterCard'
+import CharacterCard from '../characters/CharacterCard'
 
 class EpisodeView extends React.Component {
 
   state = {
-    episode: null
-    // allCharacters: null
+    episode: null,
+    allCharacters: null
   }
 
   async componentDidMount() {
@@ -19,21 +19,18 @@ class EpisodeView extends React.Component {
           return parseInt(str) - 1
         }
       }
-      const epRequest = await axios.get('https://breakingbadapi.com/api/episodes')
-      // console.log(episodes.data[episodeId])
-      // const charRequest = axios.get('https://breakingbadapi.com/api/characters')
-      // console.log(characters.data)
-      // await axios.all([epRequest, charRequest])
-      //   .then(axios.spread((...responses) => {
-      //     const res1 = responses[0]
-      //     const res2 = responses[1]
-      this.setState({
-        episode: epRequest.data[episodeId()]
-        // allCharacters: res2.data[0]
-      })
-      // }))
+      
+      await axios.all([
+        axios.get('https://breakingbadapi.com/api/episodes'),
+        axios.get('https://breakingbadapi.com/api/characters')
+      ])
+        .then(axios.spread((epRequest, charRequest) => {
+          this.setState({
+            episode: epRequest.data[episodeId()],
+            allCharacters: charRequest.data
+          })
 
-
+        }))
 
     } catch (error) {
       this.props.history.push('/errorpage')
@@ -42,7 +39,11 @@ class EpisodeView extends React.Component {
 
   render() {
     if (!this.state.episode) return null
-    const { episode } = this.state
+    
+    const { episode, allCharacters } = this.state
+    console.log(episode, allCharacters)
+    const charArr = allCharacters.filter(character => episode.characters.includes(character.name))
+    
     return (
       <section className="section">
         <div className="container">
@@ -50,12 +51,10 @@ class EpisodeView extends React.Component {
           <hr />
           <h4 className="title is-4">Air Date: {episode.air_date}</h4>
           <hr />
-          <div className="columns">
-            <div className="column is-one-quarter">
-              <h4 className="title is-4">Characters:</h4>
-              {episode.characters.map(
-                character => <h4 key={character}>{character}</h4>
-              )}
+          <h4 className="title is-4">Characters:</h4>
+          <div className="columns">   
+            <div className="columns is-mobile is-multiline">
+              {charArr.map(character => <CharacterCard key={character.char_id} {...character} />)}       
             </div>
           </div>
           <hr />
