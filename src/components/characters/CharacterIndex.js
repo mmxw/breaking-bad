@@ -1,10 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 import CharacterCard from './CharacterCard'
+import SearchBar from '../common/SearchBar'
+import NotFound from '../common/NotFound'
 
 class CharacterIndex extends React.Component {
   state = {
-    characters: null
+    characters: [],
+    userInput: ''
   }
 
   async componentDidMount() {
@@ -17,13 +20,20 @@ class CharacterIndex extends React.Component {
     }
   }
 
+  handleChange = (userInput) => {
+    this.setState({ userInput })
+  }
+
   render() {
-    if (!this.state.characters) return null
+    const charArr = this.state.characters.filter(character => character.name.toLowerCase().includes(this.state.userInput.toLowerCase()))
     return (
       <section className="section">
         <div className="container">
+          <SearchBar onChange={ this.handleChange } />
           <div className="columns is-mobile is-multiline">
-            {this.state.characters.map(character => <CharacterCard key={character.char_id} {...character} />)}
+            {charArr.length === 0 && this.state.userInput ?
+              <NotFound /> :
+              charArr.map(character => <CharacterCard key={character.char_id} {...character} />)}
           </div>
         </div>
       </section>

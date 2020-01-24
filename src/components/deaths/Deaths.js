@@ -1,10 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 import DeathCard from './DeathCard'
+import SearchBar from '../common/SearchBar'
+import NotFound from '../common/NotFound'
 
 class Deaths extends React.Component {
   state = {
-    deaths: null
+    deaths: [],
+    userInput: ''
   }
 
   async componentDidMount() {
@@ -17,14 +20,22 @@ class Deaths extends React.Component {
     }
   }
 
+  handleChange = (userInput) => {
+    this.setState({ userInput })
+  }
+
   render() {
-    if (!this.state.deaths) return null
-    console.log(this.state.deaths)
+    
+    const charDeathArr = this.state.deaths.filter(character => character.death.toLowerCase().includes(this.state.userInput.toLowerCase()))
+    // console.log(this.state.deaths)
     return (
       <section className="section">
         <div className="container">
+          <SearchBar onChange={ this.handleChange }/>
           <div className="columns is-mobile is-multiline">
-            {this.state.deaths.map(death => <DeathCard key={death.death_id} {...death} />)}
+            {charDeathArr.length === 0 && this.state.userInput ?
+              <NotFound /> :
+              charDeathArr.map(death => <DeathCard key={death.death_id} {...death} />)}
           </div>
         </div>
       </section>

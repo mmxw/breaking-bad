@@ -34,7 +34,7 @@ class CharacterView extends React.Component {
               <hr />
               <h4 className="title is-4">Birthday: {character.birthday}</h4>
               <hr />
-              <h4 className="title is-4">Occupation: {character.occupation}</h4>
+              <h4 className="title is-4">Occupation: {character.occupation.join(', ')}</h4>
               <hr />
               <h4 className="title is-4">Status: {character.status}</h4>
               <hr />
