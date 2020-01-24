@@ -1,6 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import EpisodeCard from './EpisodeCard'
+import Background from '../../assets/hero-error.jpg'
+
+const sectionStyle = {
+  width: '100%',
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundSize: 'cover'
+}
 
 let seasonEpArr = []
 
@@ -22,7 +31,7 @@ class EpisodeIndex extends React.Component {
       }
       this.setState({ episodes: seasonEpArr })
     } catch (error) {
-      console.log(error)
+      this.props.history.push('/errorpage')
     }
   }
 
@@ -30,7 +39,7 @@ class EpisodeIndex extends React.Component {
     if (!this.state.episodes) return null
     console.log(seasonId)
     return (
-      <section className="section">
+      <section style={sectionStyle} className="section episode-index">
         <div className="container">
           <div className="columns is-mobile is-multiline">
             {this.state.episodes[parseInt(seasonId) - 1].map(episode => <EpisodeCard key={episode.episode_id} {...episode} />)}

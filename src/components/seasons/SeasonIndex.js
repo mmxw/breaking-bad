@@ -1,5 +1,14 @@
 import React from 'react'
 import SeasonCard from './SeasonCard'
+import Background from '../../assets/hero-error.jpg'
+
+const sectionStyle = {
+  width: '100%',
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundSize: 'cover'
+}
 
 class SeasonIndex extends React.Component {
 
@@ -30,7 +39,7 @@ class SeasonIndex extends React.Component {
 
   render() {
     return (
-      <section className="section">
+      <section style={sectionStyle} className="section season-index">
         <div className="container">
           <div className="columns is-mobile is-multiline">
             {this.state.seasons.map(season => <SeasonCard key={season.seasonId} {...season} />)}

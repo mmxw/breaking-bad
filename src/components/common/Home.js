@@ -3,7 +3,10 @@ import Background from '../../assets/hero.jpg'
 
 const sectionStyle = {
   width: '100%',
-  backgroundImage: `url(${Background})`
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundSize: 'cover'
 }
 
 const Home = () => (
@@ -11,10 +14,10 @@ const Home = () => (
     <div className="hero-body cheese-image">
       <div className="container">
         <p className="title is-1 has-text-black has-text-centered">
-          Breaking Bad
+          
         </p>
         <p className="subtitle is-4 has-text-black has-text-centered">
-          Lets cook...
+          
         </p>
       </div>
     </div>

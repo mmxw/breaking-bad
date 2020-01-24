@@ -3,6 +3,15 @@ import axios from 'axios'
 import QuoteCard from './QuoteCard'
 import SearchBar from '../common/SearchBar'
 import NotFound from '../common/NotFound'
+import Background from '../../assets/hero-error.jpg'
+
+const sectionStyle = {
+  width: '100%',
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundSize: 'cover'
+}
 
 class Quotes extends React.Component {
   state = {
@@ -16,7 +25,7 @@ class Quotes extends React.Component {
       console.log(quotes.data)
       this.setState({ quotes: quotes.data })
     } catch (error) {
-      console.log(error)
+      this.props.history.push('/errorpage')
     }
   }
 
@@ -25,11 +34,11 @@ class Quotes extends React.Component {
   }
 
   render() {
-    const charQuoteArr = this.state.quotes.filter(obj => obj.author.toLowerCase().includes(this.state.userInput.toLowerCase())) //TODO
+    const charQuoteArr = this.state.quotes.filter(obj => obj.author.toLowerCase().includes(this.state.userInput.toLowerCase()) && obj.series === 'Breaking Bad')
 
     console.log(this.state.quotes)
     return (
-      <section className="section">
+      <section style={sectionStyle} className="section">
         <div className="container">
           <SearchBar onChange={ this.handleChange } />
           <div className="columns is-mobile is-multiline">
