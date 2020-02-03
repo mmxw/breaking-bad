@@ -1,7 +1,6 @@
 import React from 'react'
 
 const QuoteCard = ({ quote, author }) => (
-
   <div className="column is-half-desktop is-one-third-tablet is-full-mobile">
     <div className="card">
       <div className="card-header">
