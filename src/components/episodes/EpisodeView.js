@@ -51,8 +51,7 @@ class EpisodeView extends React.Component {
 
     const { episode, allCharacters } = this.state
     const charArr = allCharacters.filter(character => episode.characters.includes(character.name))
-    console.log(episode, allCharacters)
-    console.log(charArr)
+
     return (
       <section style={sectionStyle} className="section">
         <div className="container">

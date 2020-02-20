@@ -11,7 +11,7 @@ const sectionStyle = {
   backgroundSize: 'cover'
 }
 
-let seasonEpArr = []
+const seasonEpArr = []
 
 let seasonId = null
 
@@ -37,7 +37,6 @@ class EpisodeIndex extends React.Component {
 
   render() {
     if (!this.state.episodes) return null
-    console.log(seasonId)
     return (
       <section style={sectionStyle} className="section episode-index">
         <div className="container">

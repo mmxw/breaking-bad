@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const SearchBar = ({ onChange }) => (
   <div className="columns is-centered">
     <div className="control column is-half">
