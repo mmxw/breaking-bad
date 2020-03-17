@@ -2,7 +2,7 @@
 
 # Project Two - Breaking Bad
 
-Software Engineering Immersive: Project 3 (Group Project)
+Software Engineering Immersive: Project 2 (Pair Project)
 
 This was a pair project assigned for the Software Engineering Immersive at General Assembly London (Week 5) built with React.js.
 
