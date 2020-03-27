@@ -107,6 +107,55 @@ Day 2:
 - Styling
 - Presentation
 
+## Successes and key learnings
+
+This project was the first project that me and a classmate used to obtain data from a backend, as project one was solely a frontend application. Obtaining and rendering the correct information using Axios and React.js was a challenge at first, especially when two datasets from different locations within the API needed to be rendered on the same page:
+
+```
+ await axios.all([
+    axios.get('https://breakingbadapi.com/api/episodes'),
+    axios.get('https://breakingbadapi.com/api/characters')
+  ])
+    .then(axios.spread((epRequest, charRequest) => {
+      this.setState({
+        episode: epRequest.data[episodeId()],
+        allCharacters: charRequest.data
+      })
+```
+
+Learning how to use Axios and React.js proved to be an exceptionally fun task once we learned how to properly render data from the backend onto the frontend. We were able to use the same techniques that we learned from project one and implement them onto this project, to show the data. As datasets were the same as what we were used to working with in the previous project, we understood which methods we needed to use to display certain types of data. For example, the API retuned an array of objects for most datasets, meaning we could map through the array and use dot-notation to deliver the necessary data to the user:
+
+- Parent component:
+
+```
+<div className="columns is-mobile is-multiline">
+  {charQuoteArr.length === 0 && this.state.userInput ?
+    <NotFound /> :
+    charQuoteArr.map(quote => <QuoteCard key={quote.quote_id} {...quote} />)}
+</div>
+```
+
+- Child component:
+
+```
+import React from 'react'
+
+const QuoteCard = ({ quote, author }) => (
+  <div className="column is-half-desktop is-one-third-tablet is-full-mobile">
+    <div className="card">
+      <div className="card-header">
+        <h4 className="card-header-title">{author}</h4>
+      </div>
+      <div className="card-content">
+        <p><i>"{quote}"</i></p>
+      </div>
+    </div>
+  </div>
+)
+
+export default QuoteCard
+```
+
 ## Challenges & future improvements
 
 The following code illustrates the challenge we faced when trying to obtain two different data sets from within the API. We worked tirelessly to find the solution to this problem, and eventually got the data to return in the console.log. From there, it was simply a matter of rendering the data on the user interface:
