@@ -109,19 +109,7 @@ Day 2:
 
 ## Successes and key learnings
 
-This project was the first project that me and a classmate used to obtain data from a backend, as project one was solely a frontend application. Obtaining and rendering the correct information using Axios and React.js was a challenge at first, especially when two datasets from different locations within the API needed to be rendered on the same page:
-
-```
- await axios.all([
-    axios.get('https://breakingbadapi.com/api/episodes'),
-    axios.get('https://breakingbadapi.com/api/characters')
-  ])
-    .then(axios.spread((epRequest, charRequest) => {
-      this.setState({
-        episode: epRequest.data[episodeId()],
-        allCharacters: charRequest.data
-      })
-```
+This project was the first project that me and a classmate used to obtain data from a backend, as project one was solely a frontend application. Obtaining and rendering the correct information using Axios and React.js was a challenge at first, however me and my teammate worked extremely well together and we overcame these challenges as a team.
 
 Learning how to use Axios and React.js proved to be an exceptionally fun task once we learned how to properly render data from the backend onto the frontend. We were able to use the same techniques that we learned from project one and implement them onto this project, to show the data. As datasets were the same as what we were used to working with in the previous project, we understood which methods we needed to use to display certain types of data. For example, the API retuned an array of objects for most datasets, meaning we could map through the array and use dot-notation to deliver the necessary data to the user:
 
