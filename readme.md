@@ -6,7 +6,7 @@ Built with: HTML, Bulma, JavaScript ES6, React.js Express.js axios
 - Xuan Wang (https://github.com/mmxw)
 - David Campbell (https://github.com/CampbellDavid)
 
-### Project Technical Requirements
+## Project Technical Requirements
 
 Your app must:
 * **Consume a public API** – this could be anything but it must make sense for your project.
@@ -16,7 +16,7 @@ Your app must:
 * Have **semantically clean HTML** - you make sure you write HTML that makes structural sense rather than thinking about how it might look, which is the job of CSS.
 * **Be deployed online** and accessible to the public.
 
-### User Story: 
+## User Story: 
 - user can navigate through different seasons and different episodes of breaking bad
 - user can search characters, their quotes and deaths, by typing their name in the search bar and the filtered results will be displayed in real time
 
@@ -26,49 +26,48 @@ Your app must:
 
 We designed out homepage to be minimal with just a navbar and background. We found that the use of a stretched gif image rendered poorly on the page after running the server, hence we used the ‘react-youtube-background’ package to display a YouTube video as a background.
 
-<img src="src/assets/screenshots/homepage.png" width=700>
+<img src="src/assets/screenshots/homepage.png" width=300 height=150>
 
 
 **Viewing Characters**
 
 The character index page allows the user to search through the list of characters returned by the API. The user is presented with a full list of all characters and their names on the index page. Each character image has been sized to fit a uniform 2x3 card size, though the various length of names sometimes creates inequal boundaries for the cards.
 
-<img src="src/assets/screenshots/char-index.png" width=700>
+<img src="src/assets/screenshots/char-index.png" width=300 height=150>
 
 
 **Viewing a single character**
 
 Each character card on the index page (above) contains a link to the relevant id of the focused character. Upon clicking, the user will be redirected to the page that contains the character information nested within the relevant section of the API.
 
-<img src="src/assets/screenshots/char-show.png" width=700>
+<img src="src/assets/screenshots/char-show.png" width=300 height=150>
 
 
 **Viewing Seasons**
 
-Seasons can be viewed by navigating to the ‘seasons’ link in the navbar. The user will be presented with the five seasons as five cards, uniform in size. Each season card links to an index page displaying each episode within that season (pictured below).
-
-<img src="src/assets/screenshots/season-index.png" width=400>
-<img src="src/assets/screenshots/episode-index.png" width=400>
+Seasons can be viewed by navigating to the ‘seasons’ link in the navbar. The user will be presented with the five seasons as five cards, uniform in size. Each season card links to an index page displaying each episode within that season (pictured below).<br/>
+<span>
+<img src="src/assets/screenshots/season-index.png" width=300 height=150>
+<img src="src/assets/screenshots/episode-index.png" width=300 height=150> </span>
 
 **Viewing a single episode**
 
 The episode view page displays the air date of said episode, the title of it and the characters involved in the episode.
 
-<img src="src/assets/screenshots/episode-show.png" width=700>
+<img src="src/assets/screenshots/episode-show.png" width=300 height=150>
 
 **Quotes and Deaths**
 
-The various quotes and deaths of each character can be accessed via their respective links in the navbar. Each page will display its data as an index of cards which display the necessary information, which includes the character name at the top followed by contents below.
+The various quotes and deaths of each character can be accessed via their respective links in the navbar. Each page will display its data as an index of cards which display the necessary information, which includes the character name at the top followed by contents below. <br/>
 
-<img src="src/assets/screenshots/quote-index.png" width=400>
-<img src="src/assets/screenshots/death-index.png" width=400>
+<span><img src="src/assets/screenshots/quote-index.png" width=300 height=150><img src="src/assets/screenshots/death-index.png" width=300 height=150></span>
 
 
 **Error Page**
 
 The error page will be thrown whenever an unknown route is entered in the navigation bar of the browser.
 
-<img src="src/assets/screenshots/unknown-page.png" width=700>
+<img src="src/assets/screenshots/unknown-page.png" width=300 height=150>
 
 
 
