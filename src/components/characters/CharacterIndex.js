@@ -3,6 +3,7 @@ import axios from 'axios'
 import CharacterCard from './CharacterCard'
 import SearchBar from '../common/SearchBar'
 import NotFound from '../common/NotFound'
+<<<<<<< HEAD
 import Background from '../../assets/char-bkrd.jpg'
 
 const sectionStyle = {
@@ -12,6 +13,8 @@ const sectionStyle = {
   backgroundAttachment: 'fixed',
   backgroundSize: 'cover'
 }
+=======
+>>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
 
 class CharacterIndex extends React.Component {
   state = {

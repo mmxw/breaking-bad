@@ -3,6 +3,7 @@ import axios from 'axios'
 import DeathCard from './DeathCard'
 import SearchBar from '../common/SearchBar'
 import NotFound from '../common/NotFound'
+<<<<<<< HEAD
 import Background from '../../assets/hero-error.jpg'
 
 const sectionStyle = {
@@ -12,6 +13,8 @@ const sectionStyle = {
   backgroundAttachment: 'fixed',
   backgroundSize: 'cover'
 }
+=======
+>>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
 
 class Deaths extends React.Component {
   state = {
@@ -34,13 +37,21 @@ class Deaths extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
     const charDeathArr = this.state.deaths.filter(character => character.death.toLowerCase().includes(this.state.userInput.toLowerCase()))
     // console.log(this.state.deaths)
     return (
       <section style={sectionStyle} className="section">
         <div className="container">
+<<<<<<< HEAD
           <SearchBar onChange={this.handleChange} />
+=======
+          <SearchBar onChange={ this.handleChange }/>
+>>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
           <div className="columns is-mobile is-multiline">
             {charDeathArr.length === 0 && this.state.userInput ?
               <NotFound /> :

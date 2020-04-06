@@ -3,6 +3,7 @@ import axios from 'axios'
 import QuoteCard from './QuoteCard'
 import SearchBar from '../common/SearchBar'
 import NotFound from '../common/NotFound'
+<<<<<<< HEAD
 import Background from '../../assets/hero-error.jpg'
 
 const sectionStyle = {
@@ -12,6 +13,8 @@ const sectionStyle = {
   backgroundAttachment: 'fixed',
   backgroundSize: 'cover'
 }
+=======
+>>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
 
 class Quotes extends React.Component {
   state = {
@@ -34,7 +37,11 @@ class Quotes extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     const charQuoteArr = this.state.quotes.filter(obj => obj.author.toLowerCase().includes(this.state.userInput.toLowerCase()) && obj.series === 'Breaking Bad')
+=======
+    const charQuoteArr = this.state.quotes.filter(obj => obj.author.toLowerCase().includes(this.state.userInput.toLowerCase())) //TODO
+>>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
 
     console.log(this.state.quotes)
     return (
