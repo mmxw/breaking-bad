@@ -25,7 +25,6 @@ class Deaths extends React.Component {
   async componentDidMount() {
     try {
       const deaths = await axios.get('https://breakingbadapi.com/api/deaths')
-      console.log(deaths.data)
       this.setState({ deaths: deaths.data })
     } catch (error) {
       this.props.history.push('/errorpage')
@@ -43,7 +42,7 @@ class Deaths extends React.Component {
     
 >>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
     const charDeathArr = this.state.deaths.filter(character => character.death.toLowerCase().includes(this.state.userInput.toLowerCase()))
-    // console.log(this.state.deaths)
+
     return (
       <section style={sectionStyle} className="section">
         <div className="container">

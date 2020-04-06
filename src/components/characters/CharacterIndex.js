@@ -25,7 +25,6 @@ class CharacterIndex extends React.Component {
   async componentDidMount() {
     try {
       const characters = await axios.get('https://breakingbadapi.com/api/characters')
-      console.log(characters.data)
       this.setState({ characters: characters.data })
     } catch (error) {
       this.props.history.push('/errorpage')
@@ -41,7 +40,7 @@ class CharacterIndex extends React.Component {
     return (
       <section style={sectionStyle} className="section">
         <div className="container">
-          <SearchBar onChange={ this.handleChange } />
+          <SearchBar onChange={this.handleChange} />
           <div className="columns is-mobile is-multiline">
             {charArr.length === 0 && this.state.userInput ?
               <NotFound /> :

@@ -12,11 +12,6 @@ class EpisodeCard extends React.Component {
             <div className="card-header">
               <h4 className="card-header-title">{this.props.title}</h4>
             </div>
-            {/* <div className="card-image">
-            <figure className="image">
-              <img src={img} alt={name} />
-            </figure>
-          </div> */}
           </div>
         </Link>
       </div>

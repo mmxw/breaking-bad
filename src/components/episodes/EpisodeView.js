@@ -59,6 +59,7 @@ class EpisodeView extends React.Component {
 
     const { episode, allCharacters } = this.state
     const charArr = allCharacters.filter(character => episode.characters.includes(character.name))
+<<<<<<< HEAD
     console.log(episode, allCharacters)
     console.log(charArr)
 =======
@@ -68,6 +69,9 @@ class EpisodeView extends React.Component {
     const charArr = allCharacters.filter(character => episode.characters.includes(character.name))
     
 >>>>>>> 7e4deea3b30f2d80dc7d501db155eee100a93250
+=======
+
+>>>>>>> 78cb7adc0a8b0f5e8617039a1ccd5a51253c1704
     return (
       <section style={sectionStyle} className="section">
         <div className="container">

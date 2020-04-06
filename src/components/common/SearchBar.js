@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const SearchBar = ({ onChange }) => (
 <<<<<<< HEAD
   <div className="columns is-centered">
